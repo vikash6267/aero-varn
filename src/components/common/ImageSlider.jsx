@@ -5,11 +5,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 import { Maximize, X } from "lucide-react";
-import one from "../../assets/aerodibba.jpg";
-import two from "../../assets/packet.jpg";
-import three from "../../assets/backside.jpg";
+import one from "../../assets/backSideNew.jpg";
+import two from "../../assets/packetNew.jpg";
 
-const images = [one, two, three];
+const images = [one, two];
 
 export default function ImageSlider() {
   const [isFullscreen, setIsFullscreen] = useState(false);
