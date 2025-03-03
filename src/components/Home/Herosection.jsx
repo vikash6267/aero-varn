@@ -5,14 +5,14 @@ import hero from "../../assets/hero.jpg";
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full text-white min-h-[90vh] flex lg:items-center">
+    <section className="relative w-full text-white lg:min-h-[90vh] min-h-[40vh] flex lg:items-center">
       {/* Background Image */}
-      <div className="absolute inset-0 w-full h-full">
+      <div className="absolute inset-0 w-full lg:h-full">
         <Image
           src={hero}
           alt="Hero background"
           fill
-          className="object-cover  object-center"
+          className="object-cover  object-right"
           priority
         />
         <div className="absolute inset-0 bg-black/50 backdrop-blur-[1px]"></div>
