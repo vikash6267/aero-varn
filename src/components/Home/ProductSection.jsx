@@ -17,10 +17,9 @@ function ProductSection() {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-12 items-center">
+      <div className="grid lg:grid-cols-2 gap-12 items-center">
         <div className="flex justify-center">
-          <div className="relative">
-        <ImageSlider />
+          <div className="relative">        <ImageSlider />
           </div>
         </div>
         <div className="space-y-6">

@@ -30,7 +30,7 @@ export default function ImageSlider() {
 
   return (
     <div className="w-screen flex justify-center">
-      <div className="w-full max-w-lg relative">
+      <div className="w-full max- relative">
         <Slider {...settings}>
           {images.map((img, index) => (
             <div key={index} className="relative flex justify-center">
