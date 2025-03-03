@@ -1,141 +1,65 @@
 "use client";
-import Image from "next/image";
-import Link from "next/link";
-import React, { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
-import logo from "@/assets/logo.png";
-import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
-import { SiMaplibre } from "react-icons/si";
-const Navbar = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const links = [
-    { name: "Home", to: "/" },
-    { name: "About", to: "/about" },
-    { name: "Services", to: "/services" },
-    { name: "Urgent Care", to: "/urgent-care" },
-  ];
+import { useState } from "react";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import logo from "../../assets/logo.png";
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <>
-      <div className="w-full bg-white text-black shadow-lg fixed top-0 left-0 z-50 ">
-        <div className="hidden sm:flex justify-between max-w-7xl mx-auto items-center px-6 py-4">
-          <Link href="/" className="text-xl">
-            <Image
-              src={logo}
-              className="w-48 transition-transform duration-300 hover:scale-110"
-              alt="Logo"
-            />
-          </Link>
-          <div className="flex space-x-6 items-center">
-            {links.map((link, index) => (
-              <Link
-                href={link.to}
-                className="hover:text-[#800080] text-[17px] font-semibold transition-all duration-300"
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
+    <nav className="bg-[#1e1e2e] text-white fixed w-full z-50 shadow-md">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex justify-between items-center h-20">
+        {/* Logo */}
+        <div className="flex items-center space-x-2">
+          <Image src={logo} alt="Logo" width={150} height={150} className="h-14 w-auto" />
         </div>
 
-        <div className="sm:hidden bg-white flex justify-between items-center px-6 py-4 border-b border-gray-200">
-          <Link href="/" className="text-xl">
-            <Image
-              src={logo}
-              className="w-36 transition-transform duration-300 hover:scale-110"
-              alt="Logo"
-            />
-          </Link>
-          <button
-            onClick={() => setIsSidebarOpen((prev) => !prev)}
-            className="transition-all duration-300"
-          >
-            {isSidebarOpen ? <FaTimes size={28} /> : <FaBars size={28} />}
+        {/* Desktop Menu */}
+        <div className="hidden md:flex space-x-8 text-[#ffae42] font-semibold text-lg">
+          <Link href="/" className="hover:text-[#ffcc70] transition duration-300">Home</Link>
+          <Link href="/about" className="hover:text-[#ffcc70] transition duration-300">About</Link>
+          <Link href="/services" className="hover:text-[#ffcc70] transition duration-300">Services</Link>
+          <Link href="/contact" className="hover:text-[#ffcc70] transition duration-300">Contact</Link>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <div className="md:hidden">
+          <button onClick={() => setIsOpen(!isOpen)} className="focus:outline-none">
+            {isOpen ? <X size={30} className="text-[#ffcc70]" /> : <Menu size={30} className="text-[#ffcc70]" />}
           </button>
         </div>
-
-        <div
-          className={`fixed top-0 left-0 w-64 h-screen bg-white shadow-lg z-50 transition-transform duration-500 ease-in-out ${
-            isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
-        >
-          <div className="flex justify-between items-center px-6 py-4 border-b border-gray-200">
-            <Image src={logo} className="w-32" alt="Logo" />
-            <button onClick={() => setIsSidebarOpen(false)}>
-              <FaTimes size={28} />
-            </button>
-          </div>
-          <div className="px-6 py-2">
-            {links.map((link, index) => (
-              <Link
-                href={link.to}
-                className="block mb-4 hover:text-gray-600 text-lg font-medium"
-                onClick={() => setIsSidebarOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
-
-          <div className="flex space-x-4 pl-10">
-            <Link
-              href="https://www.facebook.com/wix"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-            >
-              <FaFacebook
-                size={22}
-                className="text-gray-800 hover:text-gray-300"
-              />
-            </Link>
-            <Link
-              href=""
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-            >
-              <FaInstagram
-                size={22}
-                className="text-gray-800 hover:text-gray-300"
-              />
-            </Link>
-            <Link
-              href="https://www.youtube.com/user/Wix"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="YouTube"
-            >
-              <FaYoutube
-                size={22}
-                className="text-gray-800 hover:text-gray-300"
-              />
-            </Link>
-            <Link
-              href="https://www.google.com/maps?q=1130+Senoia+Road+Suite+B4+Tyrone+GA+30290&z=17&hl=en"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Map"
-            >
-              <SiMaplibre
-                size={22}
-                className="text-gray-800 hover:text-gray-300"
-              />
-            </Link>
-          </div>
-          <br />
-          <div className="flex justify-center"></div>
-        </div>
-
-        <div
-          className={`fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-500 ${
-            isSidebarOpen ? "opacity-100 visible" : "opacity-0 invisible"
-          }`}
-          onClick={() => setIsSidebarOpen(false)}
-        ></div>
       </div>
-    </>
+
+      {/* Mobile Sidebar */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ x: "-100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "-100%" }}
+            transition={{ type: "spring", stiffness: 100 }}
+            className="fixed top-0 left-0 w-72 h-full bg-[#252542] shadow-xl z-50 p-6"
+          >
+            <button className="absolute top-5 right-5 text-white" onClick={() => setIsOpen(false)}>
+              <X size={28} />
+            </button>
+            <div className="flex flex-col items-center mt-10">
+              <Image src={logo} alt="Logo" width={130} height={130} className="h-16 w-auto" />
+            </div>
+            <div className="mt-10 space-y-6 text-[#ffae42] font-semibold text-lg">
+              <Link href="/" className="block hover:text-[#ffcc70] transition duration-300" onClick={() => setIsOpen(false)}>Home</Link>
+              <Link href="/about" className="block hover:text-[#ffcc70] transition duration-300" onClick={() => setIsOpen(false)}>About</Link>
+              <Link href="/services" className="block hover:text-[#ffcc70] transition duration-300" onClick={() => setIsOpen(false)}>Services</Link>
+              <Link href="/contact" className="block hover:text-[#ffcc70] transition duration-300" onClick={() => setIsOpen(false)}>Contact</Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
   );
 };
 
