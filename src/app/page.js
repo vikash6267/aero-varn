@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Download } from "lucide-react";
 import one from "../assets/aerodibba.jpg";
+import landingImage from "../assets/landing.png";
 import two from "../assets/packet.jpg";
 import three from "../assets/backside.jpg";
 import ImageSlider from "@/components/common/ImageSlider";
@@ -59,11 +60,11 @@ export default function Home() {
             </div>
             <div className="flex justify-center">
               <Image
-                src={two}
+                src={landingImage}
                 alt="AERO Extra Strength Headache Powder Box"
                 width={500}
                 height={500}
-                className="object-contain"
+                className="object-contain bg-"
                 priority
               />
             </div>

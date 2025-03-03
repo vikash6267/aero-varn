@@ -9,7 +9,7 @@ body {
 /* Firefox */
 * {
   scrollbar-width: 5px;
-  scrollbar-color: #2b06ff;
+  scrollbar-color: Orange;
   
 }
 
@@ -19,11 +19,11 @@ body {
 }
 
 *::-webkit-scrollbar-track {
-  background: #000000;
+  background: #ff9100;
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #ffffff;
+  background-color: #0d79f5;
   border-radius: 10px;
   visibility: hidden;
 }
