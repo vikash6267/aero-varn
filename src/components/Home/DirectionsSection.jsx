@@ -15,10 +15,10 @@ function DirectionsSection() {
 
             <ul className="mt-4 md:mt-6 space-y-3 md:space-y-4 max-w-xl mx-auto">
               {[
-                "Place 1 powder on tongue every 6 hours, while symptoms persist",
-                "Drink a full glass of water with each dose",
-                "Or may stir powder into a glass of water or other liquid",
-                "Do not take more than 4 powders in 24 hours unless directed by a doctor",
+                "Place 1 powder on tongue every 6 hours, while symptoms persist.",
+                "Drink a full glass of water with each dose.",
+                "Or may stir powder into a glass of water or other liquid.",
+                "Do not take more than 4 powders in 24 hours unless directed by a doctor.",
               ].map((text, index) => (
                 <li key={index} className="flex items-start space-x-3 text-left">
                   <CheckCircle className="text-blue-600 w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 mt-0.5" />
