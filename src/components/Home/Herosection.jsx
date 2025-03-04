@@ -50,7 +50,7 @@ export default function HeroSection() {
       </div>
     </section>
 
-     <section className="bg-gradient-to-r from-blue-800 to-indigo-900 text-white py-16 md:py-24">
+     <section className="bg-gradient-to-r from-blue-800 to-indigo-900 lg:hidden  md:hidden text-white py-16 md:py-24">
           <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
             <div className="space-y-6">
               <div className="inline-block bg-orange-500 text-white px-4 py-1 rounded-full text-sm font-medium">
